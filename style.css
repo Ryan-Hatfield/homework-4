@@ -1,4 +1,25 @@
 body{
     font-family: 'Noto Sans JP', sans-serif;
+}
 
+#Timer {
+    color: red;
+    font-size: larger;
+}
+
+#H1 {
+    color: royalblue;
+}
+
+.container {
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 992px) {
+    .column, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
 }
