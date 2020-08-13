@@ -28,13 +28,12 @@
           </nav>
     </header>
 
-    <!-- Main(1) Will show and hide based on when the user clicks the "start Quiz" button.-->
-    <!--We can have more than one "main" element when only one "main" is active on the HTML at a time.-->
-    <main class="container">
+    <!--Will show and hide based on when the user clicks the "start Quiz" button.-->
+    <section class="container">
         <section id="introduction" class="show">
             <section class="row">
                 <section class="col-md-12">
-                    <h2>Coding Quiz Challenge</h2>
+                    <h1>Coding Quiz Challenge</h1>
                 </section>
             </section>
             <section class="row">
@@ -50,23 +49,20 @@
                     <button id="startButton">Start Quiz</button>
                 </section>
             </section>
-        </main>
+        </section>
 
-    <!-- Main(2) Will show and hide based on when the user clicks the "start Quiz" button.-->
-    <main id="quiz-questions" class="hide">
-        <section class="row">
-            <section class="col-md-12 questions">
-                <h3 id="question"></h3>
+    <!--Will show and hide based on when the user clicks the "start Quiz" button.-->
+        <section id="quiz-questions" class="hide">
+            <section class="row">
+                <section class="col-md-12 questions">
+                    <h3 id="question"></h3>
+            </section>
+            </section>
+            <section class="row">
+                <section class="col-md-12" id="answers"></section>
+                <section id="response" class="response hide"></section>
             </section>
         </section>
-        <section class="row">
-            <section class="col-md-12" id="answer"></section>
-            <section id="response" class="response hide"></section>
-        </section>
-    </main>
-
- 
-
 
 
 
