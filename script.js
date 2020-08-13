@@ -32,11 +32,12 @@ var questions = [
 ];
 
 //---Variables for Code Quiz.
-var quizQuestions = questions;
+var quizQuestions = document.querySelector("#quiz-questions");
+var userAnswer = document.querySelector("#answer");
 var startBtn = document.querySelector("#startButton");
 var timeEl = document.querySelector("#time");
-var titleScreen = document.querySelector("#introduction");
-var quizScreen = document.querySelector("#quiz-questions");
+var introductionScreen = document.querySelector("#introduction");
+var questionsScreen = document.querySelector("#quiz-questions");
 var responseEl = document.querySelector("#response");
 var time = 75;
 var timer;
