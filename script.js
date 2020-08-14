@@ -41,6 +41,12 @@ var responseEl = document.querySelector("#response");
 var currentQuestionIndex = 0;
 var time = 75;
 var timer;
+var hScore = document.querySelector("#high-score");
+var scoreUser = document.querySelector("#userScore");
+var initials = document.querySelector("#initials");
+var submit = document.querySelector("#submit");
+var highScoreLi = document.querySelector("#highScoreList");
+
 
 
 //---Function to start the timer and to show/hide the "main" elements in the HTML and start questions.
@@ -104,10 +110,20 @@ function startQuiz() {
       startQuestions();
     }
   }
-//---Function to end the quiz and set the high-scores.
+//---Function to end the quiz and show the high-score screen.
   function endQuiz() {
     clearInterval(timer);
-    
-    quizScreen.setAttribute("class", "hide");
+    questionsScreen.setAttribute("class", "hide");
+    hScore.setAttribute("class", "show");
+    scoreUser.textContent = time;
   }
+  //---Function to log scores into the high-scores page.
+  function highScore() {
+    //highScoreLi.prepend("User:" + initials +"   Score:"+ time);
+    window.location.href = "score.html";
+    
+  }
+
+  
   startBtn.addEventListener("click", startQuiz);
+  submit.addEventListener("click", highScore);

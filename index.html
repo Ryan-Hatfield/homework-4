@@ -17,6 +17,7 @@
 
 </head>
 <body>
+    <!-- Navbar with timer and link to high-score page-->
     <header>
         <nav class="navbar navbar-dark bg-dark">
             <section class="col-md-10" id ="High-Score">
@@ -29,8 +30,9 @@
     </header>
 
     <!--Will show and hide based on when the user clicks the "start Quiz" button.-->
-    <section class="container">
-        <section id="introduction" class="show">
+    <!--Since only 1 main is showing at a time and the other two mains are hidden, we can have more than 1 main.-->
+    <main class="container">
+        <main id="introduction" class="show">
             <section class="row">
                 <section class="col-md-12">
                     <h1>Coding Quiz Challenge</h1>
@@ -49,10 +51,10 @@
                     <button id="startButton">Start Quiz</button>
                 </section>
             </section>
-        </section>
+        </main>
 
     <!--Will show and hide based on when the user clicks the "start Quiz" button.-->
-        <section id="quiz-questions" class="hide">
+        <main id="quiz-questions" class="hide">
             <section class="row">
                 <section class="col-md-12 questions">
                     <h3 id="question"></h3>
@@ -62,7 +64,20 @@
                 <section class="col-md-12" id="answers"></section>
                 <section id="response" class="response hide"></section>
             </section>
-        </section>
+        </main>
+
+    <!--Will show and hide on when the quiz has ended-->
+        <main id="high-score" class="hide">
+            <section class="row">
+                <section id="score" class="col-md-12">
+                    <h3>Quiz Completed</h3>
+                    <h4>Score: <span id="userScore">0</span></h4>
+                    <label for="initials-area">Enter initials:</label>
+                    <input type="text" name="initials-area" maxlength="4" id="initials">
+                    <button id="submit" type="submit">Submit</button>
+                </section>
+            </section>
+        </main>
 
 
 

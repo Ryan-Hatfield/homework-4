@@ -11,6 +11,10 @@ h1 {
     color: royalblue;
 }
 
+h4 {
+    color: red;
+}
+
 .container {
     text-align: center;
 }
@@ -34,7 +38,9 @@ h1 {
     display: block;
 }
 
-
+#response {
+    text-align: center;
+}
 
 @media screen and (max-width: 992px) {
     .column, input[type=submit] {
