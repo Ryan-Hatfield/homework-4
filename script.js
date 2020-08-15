@@ -43,12 +43,12 @@ var time = 75;
 var timer;
 var hScore = document.querySelector("#high-score");
 var scoreUser = document.querySelector("#userScore");
-var scoreText = scoreUser.value.trim();
-var initialText = initials.value.trim();
 var initials = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var highScoreLi = document.querySelector("#highScoreList");
-var scoreOl = "User:" + initialText + "   Score:" + scoreText;
+var clear = document.querySelector("#clear-btn");
+
+
 
 
 
@@ -120,30 +120,50 @@ function startQuiz() {
     hScore.setAttribute("class", "show");
     scoreUser.textContent = time;
   }
-
-//---Function saving scores to local storage
+  //---Functions to log scores into the high-scores page.
   function saveScore() {
-    if (initialText !=="") {
-      var savedScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
-    }
-    savedScores.push(scoreOl);
-    window.localStorage.setItem("highScoreList", JSON.stringify(savedScores));
-  }
-
-  
-  //---Functions to printing scores
-  function printHighScore() {
-    var printScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
-    highScoreLi.innerHTML = "";
-    for (var i = 0; i < highScoreLi; i++) {
-      var list = document.createElement("li");
-      list.textContent= scoreOl;
-      highScoreLi.appendChild(list);
-    }
     
+    var initialText = initials.value.trim();
+
+    if (initialText ===""){
+      var savedScores =
+        JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+        
+        var scoreOrderListItems = { User: initialText, Score: time
+        };
+
+      savedScores.push(scoreOrderListItems);
+      window.localStorage.setItem("highScoreList", JSON.stringify(savedScores));
+
+    }
+    window.location.href = "https://ryan-hatfield.github.io/homework-4/score.html";
+    printHighScore();
+  }
+
+
+//--Function for printing scores.
+  function printHighScore() {
+    event.preventDefault();
+    
+    var printScore = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+    printScore.forEach(function () {
+      var list = document.createElement("li");
+    list.textContent= user.initialText + "---" + Score.time;
+    highScoreLi.appendChild(list);
+
+    });
 
   }
-  printHighScore();
+
+//---Function to Clear Scores.
+  function clearScores() {
+    window.localStorage.removeItem("highScoreList");
+    window.location.reload();
+    
+  }
+
+
   
   startBtn.addEventListener("click", startQuiz);
-  submit.addEventListener("click", printHighScore);
+  submit.addEventListener("click", saveScore);
+  clear.addEventListener("click", clearScores);
