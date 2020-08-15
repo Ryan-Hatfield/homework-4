@@ -43,9 +43,12 @@ var time = 75;
 var timer;
 var hScore = document.querySelector("#high-score");
 var scoreUser = document.querySelector("#userScore");
+var scoreText = scoreUser.value.trim();
+var initialText = initials.value.trim();
 var initials = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var highScoreLi = document.querySelector("#highScoreList");
+var scoreOl = "User:" + initialText + "   Score:" + scoreText;
 
 
 
@@ -117,13 +120,30 @@ function startQuiz() {
     hScore.setAttribute("class", "show");
     scoreUser.textContent = time;
   }
-  //---Function to log scores into the high-scores page.
-  function highScore() {
-    //highScoreLi.prepend("User:" + initials +"   Score:"+ time);
-    window.location.href = "score.html";
-    
+
+//---Function saving scores to local storage
+  function saveScore() {
+    if (initialText !=="") {
+      var savedScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+    }
+    savedScores.push(scoreOl);
+    window.localStorage.setItem("highScoreList", JSON.stringify(savedScores));
   }
 
   
+  //---Functions to printing scores
+  function printHighScore() {
+    var printScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+    highScoreLi.innerHTML = "";
+    for (var i = 0; i < highScoreLi; i++) {
+      var list = document.createElement("li");
+      list.textContent= scoreOl;
+      highScoreLi.appendChild(list);
+    }
+    
+
+  }
+  printHighScore();
+  
   startBtn.addEventListener("click", startQuiz);
-  submit.addEventListener("click", highScore);
+  submit.addEventListener("click", printHighScore);
