@@ -51,7 +51,6 @@ var clear = document.querySelector("#clear-btn");
 
 
 
-
 //---Function to start the timer and to show/hide the "main" elements in the HTML and start questions.
 function startQuiz() {
     introductionScreen.setAttribute("class", "hide");
@@ -127,13 +126,13 @@ function startQuiz() {
 
     if (initialText ===""){
       var savedScores =
-        JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+        JSON.parse(window.localStorage.getItem("#highScoreList")) || [];
         
         var scoreOrderListItems = { User: initialText, Score: time
         };
 
       savedScores.push(scoreOrderListItems);
-      window.localStorage.setItem("highScoreList", JSON.stringify(savedScores));
+      window.localStorage.setItem("#highScoreList", JSON.stringify(savedScores));
 
     }
     window.location.href = "https://ryan-hatfield.github.io/homework-4/score.html";
@@ -145,10 +144,10 @@ function startQuiz() {
   function printHighScore() {
     event.preventDefault();
     
-    var printScore = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+    var printScore = JSON.parse(window.localStorage.getItem("#highScoreList")) || [];
     printScore.forEach(function () {
       var list = document.createElement("li");
-    list.textContent= user.initialText + "---" + Score.time;
+    list.textContent= User.initialText + "-----" + Score.time;
     highScoreLi.appendChild(list);
 
     });
@@ -157,7 +156,7 @@ function startQuiz() {
 
 //---Function to Clear Scores.
   function clearScores() {
-    window.localStorage.removeItem("highScoreList");
+    window.localStorage.removeItem("#highScoreList");
     window.location.reload();
     
   }
