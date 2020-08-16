@@ -87,12 +87,14 @@ function startQuiz() {
   //---Function to handle when the use selects an answer. If wrong the user will have time taken away.
   //---If the wrong answer is chosen the user has time taken away and has to answer correctly to move on to the next question.
   function answerClick() {
-    if (this.value !== questions[currentQuestionIndex].correctAnswer) {
+    if (this.value != questions[currentQuestionIndex].correctAnswer) {
       time -= 10;
       responseEl.textContent = "Wrong! Try again!";
     
     if (time < 0) {
         time = 0;
+      } else if (this.value != questions[currentQuestionIndex].correctAnswer){
+        currentQuestionIndex--;
       }
 
       timeEl.textContent = time;
