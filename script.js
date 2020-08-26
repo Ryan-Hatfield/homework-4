@@ -8,7 +8,7 @@ var questions = [
      //------Question 2
     {
         questionAsked: "Arrays in JavaScript can be used to store_____.",
-        answers: ["numers and strings", "other arrays", "booleans", "all of the above"],
+        answers: ["numbers and strings", "other arrays", "booleans", "all of the above"],
         correctAnswer: "all of the above"
     },
      //------Question 3
